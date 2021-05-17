@@ -1,7 +1,8 @@
 <h2>{{contacts.length}} contacts</h2>
 
 <!-- champ de recherche de contacts-->
-<input type="text" class="form-control" placeholder="Rechercher un contact...">
+<input type="text" class="form-control" placeholder="Rechercher un contact..." #champ
+   (keyup)="searchContact(champ.value)" />
 
 <!-- liste -->
 <ul class="list-group">

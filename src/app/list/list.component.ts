@@ -32,6 +32,11 @@ export class ListComponent implements OnInit {
     this.contacts.splice(index, 1);
   }
 
+  searchContact(userInput) {
+    console.log(userInput);
+
+  }
+
 
 
 } // Fin de la class
