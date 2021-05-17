@@ -1,0 +1,19 @@
+<ul class="list-group">
+   <li class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
+      <!-- bloc de gauche -->
+      <span>
+         <button class="btn btn-light">
+            <i class="fas fa-trash-alt"></i>
+         </button>
+         {{contact.first}} {{contact.last}}
+      </span>
+      <!-- Bloc de droite -->
+      <span>
+         Ajouté le 17/05/2021
+         <button class="btn btn-light">
+            <i class="fas fa-star"></i>
+         </button>
+      </span>
+
+   </li>
+</ul>
