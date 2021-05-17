@@ -21,10 +21,17 @@ export class ListComponent implements OnInit {
       { first: 'Steve', last: 'Jobs' },
       { first: 'Mark', last: 'Hello' },
     ];
+  } // fin ngOnInit
 
-
+  deleteContact(contact) {
+    console.log(contact);
+    // 1 récuperer l'index du contact dans le tableau
+    const index = this.contacts.indexOf(contact);
+    console.log('index : ', index);
+    // 2 utiliser la méthode splice
+    this.contacts.splice(index, 1);
   }
 
 
 
-}
+} // Fin de la class
