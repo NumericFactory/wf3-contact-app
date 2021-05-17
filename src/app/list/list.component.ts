@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
       { first: 'Fred', last: 'Lo' },
       { first: 'Marie', last: 'Be' },
       { first: 'Steve', last: 'Jobs' },
+      { first: 'Mark', last: 'Hello' },
     ];
 
 
