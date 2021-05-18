@@ -31,7 +31,9 @@ export class ListComponent implements OnInit {
       const index = this.contacts.indexOf(contact);
       console.log('index : ', index);
       // 2 utiliser la méthode splice
-      this.contacts.splice(index, 1);
+      // this.contacts.splice(index, 1);
+      this.dbContacts.splice(index, 1);
+      this.contacts = [...this.dbContacts];
     }
   }
 
