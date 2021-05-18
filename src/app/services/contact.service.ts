@@ -20,9 +20,16 @@ export class ContactService {
     return this.dbContacts
   }
 
-  setFav() {
-
+  setFavToTrueOrFalse(contact) {
+    // 1 Rechercher le bon objet dans dbContacts
+    const index = this.dbContacts.findIndex(contactInDb => contactInDb == contact); // 1
+    // 2 set la propriété isFav à TRUE ou FALSE
+    this.dbContacts[index].isFav = !this.dbContacts[index].isFav;
+    console.log(this.dbContacts[index].isFav);
+    console.log(this.dbContacts)
   }
+
+
 
 
 }

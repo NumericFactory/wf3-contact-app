@@ -53,6 +53,7 @@ export class ListComponent implements OnInit {
 
   setFav(contact) {
     console.log(contact);
+    this.contactService.setFavToTrueOrFalse(contact)
   }
 
 
