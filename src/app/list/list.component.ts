@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
+  dbContacts;
   contacts;
 
 
@@ -15,12 +15,13 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     // Le ngOnInit est une méthode 
     // du cycle de vie d'un component
-    this.contacts = [
+    this.dbContacts = [
       { first: 'Fred', last: 'Lo' },
       { first: 'Marie', last: 'Be' },
       { first: 'Steve', last: 'Jobs' },
       { first: 'Mark', last: 'Hello' },
     ];
+    this.contacts = [...this.dbContacts];
   } // fin ngOnInit
 
   deleteContact(contact) {
@@ -36,8 +37,13 @@ export class ListComponent implements OnInit {
 
   searchContact(userInput) {
     console.log(userInput);
+    userInput = userInput.toLowerCase();
     // array.filter( (item) => item.first.includes(userInput) )
-    this.contacts = this.contacts.filter((contact) => contact.first.includes(userInput));
+    this.contacts = this.dbContacts.filter(
+      (contact) =>
+        contact.first.toLowerCase().includes(userInput) ||
+        contact.last.toLowerCase().includes(userInput)
+    );
 
     //
   }
