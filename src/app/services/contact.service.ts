@@ -20,7 +20,7 @@ export class ContactService {
     - this.favs$.next(data)
     - this.favs$.subscribe( callback qui s'éxecutera à chaque changement )
   */
-  fav$ = new BehaviorSubject([]);
+  fav$ = new BehaviorSubject(this.getFavs());
 
 
   /* 
@@ -29,6 +29,11 @@ export class ContactService {
   */
   getContacts() {
     return this.dbContacts
+  }
+
+  getFavs() {
+    // 1 Rechercher le bon objet dans dbContacts
+    return this.dbContacts.filter(contact => contact.isFav == true); // 1
   }
 
   setFavToTrueOrFalse(contact) {

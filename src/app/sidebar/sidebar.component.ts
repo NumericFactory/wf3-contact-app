@@ -12,14 +12,16 @@ export class SidebarComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    // 1 Recupere la liste des contacts (via le contactService)
-    this.favoris = this.contactService.getContacts().filter(
-      contact => contact.isFav == true
-    );
-    // 2 filter pour retourner la liste des contacts isFav = true
+
+    /*
+      la méthode subscribe du subject fav$
+      -> va rééxecuter sa fonction callbak (en paramètre)
+         a chaque fois que la donnée dans fav$ va changer
+    */
+    this.contactService.fav$.subscribe(favs => this.favoris = favs)
+
+
   }
-  ngOnChanges() {
-    console.log('hello')
-  }
+
 
 }
