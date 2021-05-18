@@ -21,8 +21,6 @@ export class ContactService {
     - this.favs$.subscribe( callback qui s'éxecutera à chaque changement )
   */
   fav$ = new BehaviorSubject(this.getFavs());
-
-
   /* 
   getContacts()
   doit être utilisable dans les components

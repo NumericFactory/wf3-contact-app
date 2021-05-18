@@ -56,6 +56,10 @@ export class ListComponent implements OnInit {
     this.contactService.setFavToTrueOrFalse(contact)
   }
 
+  getColor(contact) {
+    return contact.isFav ? 'orange' : 'black'
+  }
+
 
 
 } // Fin de la class

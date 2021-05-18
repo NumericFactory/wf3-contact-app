@@ -12,7 +12,6 @@ export class SidebarComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-
     /*
       la méthode subscribe du subject fav$
       -> va rééxecuter sa fonction callbak (en paramètre)
