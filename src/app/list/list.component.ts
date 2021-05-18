@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-list',
@@ -9,19 +10,23 @@ export class ListComponent implements OnInit {
   dbContacts;
   contacts;
 
-
-  constructor() { }
+  /*
+    INJECTION DE DEPENDANCE
+    permet de passer à notre component 
+    un objet d'une class exterieure
+    -> ici on injecte dans ListComponent, un objet de ContactService
+  */
+  constructor(private contactService: ContactService) {
+    console.log(this);
+    // maintenant on peut accéder aux propriétés et méthodes du service
+    // exemple : this.contactService.getContacts()
+  }
 
   ngOnInit() {
     // Le ngOnInit est une méthode 
     // du cycle de vie d'un component
-    this.dbContacts = [
-      { first: 'Fred', last: 'Lo' },
-      { first: 'Marie', last: 'Be' },
-      { first: 'Steve', last: 'Jobs' },
-      { first: 'Mark', last: 'Hello' },
-    ];
-    this.contacts = [...this.dbContacts];
+
+    this.contacts = [...this.contactService.getContacts()];
   } // fin ngOnInit
 
   deleteContact(contact) {
@@ -32,8 +37,8 @@ export class ListComponent implements OnInit {
       console.log('index : ', index);
       // 2 utiliser la méthode splice
       // this.contacts.splice(index, 1);
-      this.dbContacts.splice(index, 1);
-      this.contacts = [...this.dbContacts];
+      this.contactService.getContacts().splice(index, 1);
+      this.contacts = [...this.contactService.getContacts()];
     }
   }
 
@@ -41,7 +46,7 @@ export class ListComponent implements OnInit {
     console.log(userInput);
     userInput = userInput.toLowerCase();
     // array.filter( (item) => item.first.includes(userInput) )
-    this.contacts = this.dbContacts.filter(
+    this.contacts = this.contactService.getContacts().filter(
       (contact) =>
         contact.first.toLowerCase().includes(userInput) ||
         contact.last.toLowerCase().includes(userInput)
