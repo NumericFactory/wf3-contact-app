@@ -25,7 +25,6 @@ export class ContactService {
     const index = this.dbContacts.findIndex(contactInDb => contactInDb == contact); // 1
     // 2 set la propriété isFav à TRUE ou FALSE
     this.dbContacts[index].isFav = !this.dbContacts[index].isFav;
-    console.log(this.dbContacts[index].isFav);
     console.log(this.dbContacts)
   }
 
