@@ -36,7 +36,10 @@ export class ListComponent implements OnInit {
 
   searchContact(userInput) {
     console.log(userInput);
+    // array.filter( (item) => item.first.includes(userInput) )
+    this.contacts = this.contacts.filter((contact) => contact.first.includes(userInput));
 
+    //
   }
 
 
