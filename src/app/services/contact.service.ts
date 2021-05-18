@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,16 @@ export class ContactService {
     { first: 'Steve', last: 'Jobs', isFav: true },
     { first: 'Mark', last: 'Hello', isFav: false },
   ];
+
+  favoris = [];
+  /*
+    fav$ est un objet de type Subject
+    il dispose de 2 méthodes : 
+    - this.favs$.next(data)
+    - this.favs$.subscribe( callback qui s'éxecutera à chaque changement )
+  */
+  fav$ = new BehaviorSubject([]);
+
 
   /* 
   getContacts()
@@ -25,7 +36,10 @@ export class ContactService {
     const index = this.dbContacts.findIndex(contactInDb => contactInDb == contact); // 1
     // 2 set la propriété isFav à TRUE ou FALSE
     this.dbContacts[index].isFav = !this.dbContacts[index].isFav;
-    console.log(this.dbContacts);
+    // 3 je vais envoyer les favoris dans le subject fav$
+    this.favoris = this.dbContacts.filter(contact => contact.isFav == true);
+    this.fav$.next(this.favoris);
+    console.log(this.fav$);
   }
 
 

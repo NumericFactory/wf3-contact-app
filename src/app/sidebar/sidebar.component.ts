@@ -9,7 +9,6 @@ import { ContactService } from '../services/contact.service';
 export class SidebarComponent implements OnInit {
   // proptiété d'affichage
   favoris = [];
-
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
@@ -17,10 +16,10 @@ export class SidebarComponent implements OnInit {
     this.favoris = this.contactService.getContacts().filter(
       contact => contact.isFav == true
     );
-
     // 2 filter pour retourner la liste des contacts isFav = true
-
-
+  }
+  ngOnChanges() {
+    console.log('hello')
   }
 
 }
