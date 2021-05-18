@@ -26,10 +26,12 @@ export class ListComponent implements OnInit {
   deleteContact(contact) {
     console.log(contact);
     // 1 récuperer l'index du contact dans le tableau
-    const index = this.contacts.indexOf(contact);
-    console.log('index : ', index);
-    // 2 utiliser la méthode splice
-    this.contacts.splice(index, 1);
+    if (confirm('Voulez-vous vraiment supprimer cet utilisateur ? ')) {
+      const index = this.contacts.indexOf(contact);
+      console.log('index : ', index);
+      // 2 utiliser la méthode splice
+      this.contacts.splice(index, 1);
+    }
   }
 
   searchContact(userInput) {
