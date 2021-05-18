@@ -7,7 +7,6 @@ import { ContactService } from '../services/contact.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  dbContacts;
   contacts;
 
   /*
@@ -25,7 +24,6 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     // Le ngOnInit est une méthode 
     // du cycle de vie d'un component
-
     this.contacts = [...this.contactService.getContacts()];
   } // fin ngOnInit
 
@@ -51,6 +49,10 @@ export class ListComponent implements OnInit {
         contact.first.toLowerCase().includes(userInput) ||
         contact.last.toLowerCase().includes(userInput)
     );
+  }
+
+  setFav(contact) {
+    console.log(contact);
   }
 
 

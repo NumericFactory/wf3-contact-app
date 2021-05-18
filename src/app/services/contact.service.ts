@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class ContactService {
 
   dbContacts = [
-    { first: 'Fred', last: 'Lo' },
-    { first: 'Marie', last: 'Be' },
-    { first: 'Steve', last: 'Jobs' },
-    { first: 'Mark', last: 'Hello' },
+    { first: 'Fred', last: 'Lo', isFav: true },
+    { first: 'Marie', last: 'Be', isFav: false },
+    { first: 'Steve', last: 'Jobs', isFav: true },
+    { first: 'Mark', last: 'Hello', isFav: false },
   ];
 
   /* 
@@ -18,6 +18,10 @@ export class ContactService {
   */
   getContacts() {
     return this.dbContacts
+  }
+
+  setFav() {
+
   }
 
 
