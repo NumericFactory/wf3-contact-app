@@ -44,8 +44,6 @@ export class ListComponent implements OnInit {
         contact.first.toLowerCase().includes(userInput) ||
         contact.last.toLowerCase().includes(userInput)
     );
-
-    //
   }
 
 

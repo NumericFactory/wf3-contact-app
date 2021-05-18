@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
