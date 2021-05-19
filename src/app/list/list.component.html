@@ -6,7 +6,7 @@
 
 <!-- liste -->
 <ul class="list-group">
-   <li class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
+   <li routerLink="detail" class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
       <!-- bloc de gauche -->
       <span>
          <button (click)="deleteContact(contact)" class="btn btn-light">
