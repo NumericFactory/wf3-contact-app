@@ -4,6 +4,7 @@
 <input type="text" class="form-control" placeholder="Rechercher un contact..." #champ
    (keyup)="searchContact(champ.value)" />
 
+
 <!-- liste -->
 <ul class="list-group">
    <li *ngFor="let contact of contacts; let i=index" [routerLink]="['detail', i ]"

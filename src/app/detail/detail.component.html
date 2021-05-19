@@ -2,5 +2,20 @@
    <button routerLink="/" class="btn">
       <i class="fas fa-arrow-left"></i>
    </button>
-   detail works!
+   {{contact.first}} {{contact.last}}
 </h1>
+
+<div class="jumbotron">
+   <p><i class="fas fa-envelope"></i>{{contact.email}}</p>
+   <p><i class="fas fa-phone-square-alt"></i>{{contact.mobile}}</p>
+   <p>
+      <i class="fas fa-star" [style.color]="contact.isFav ? '#ff7777': '#000000'"></i>
+      <!-- 
+      'favori'
+      ou 
+      'Pas encore dans vos favoris' -->
+      {{ contact.isFav ? 'Dans vos favoris' : 'Pas dans vos favoris' }}
+
+
+   </p>
+</div>
