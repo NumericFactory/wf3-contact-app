@@ -37,6 +37,9 @@ export class ListComponent implements OnInit {
       // this.contacts.splice(index, 1);
       this.contactService.getContacts().splice(index, 1);
       this.contacts = [...this.contactService.getContacts()];
+      // on récupere le nouveau tableau des favoris
+      let favoris = this.contactService.getFavs();
+      this.contactService.fav$.next(favoris);
     }
   }
 
@@ -57,7 +60,7 @@ export class ListComponent implements OnInit {
   }
 
   getColor(contact) {
-    return contact.isFav ? 'orange' : 'black'
+    return contact.isFav ? 'orange' : 'black';
   }
 
 

@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 export class ContactService {
 
   dbContacts = [
-    { first: 'Fred', last: 'Lo', isFav: true },
-    { first: 'Marie', last: 'Be', isFav: false },
-    { first: 'Steve', last: 'Jobs', isFav: true },
-    { first: 'Mark', last: 'Hello', isFav: false },
+    { first: 'Fred', last: 'Lo', isFav: true, email: 'fred@gmail.com', mobile: '0778945612' },
+    { first: 'Marie', last: 'Be', isFav: false, email: 'marie@gmail.com', mobile: '011111111' },
+    { first: 'Steve', last: 'Jobs', isFav: true, email: 'steve@apple.com', mobile: '022222222' },
+    { first: 'Mark', last: 'Hello', isFav: false, email: 'mark@fb.com', mobile: '033333333' },
   ];
 
   favoris = [];
