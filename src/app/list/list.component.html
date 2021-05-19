@@ -6,10 +6,11 @@
 
 <!-- liste -->
 <ul class="list-group">
-   <li routerLink="detail" class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
+   <li *ngFor="let contact of contacts; let i=index" [routerLink]="['detail', i ]"
+      class="list-group-item d-flex justify-content-between">
       <!-- bloc de gauche -->
       <span>
-         <button (click)="deleteContact(contact)" class="btn btn-light">
+         <button (click)="deleteContact(contact, $event)" class="btn btn-light">
             <i class="fas fa-trash-alt"></i>
          </button>
          {{contact.first}} {{contact.last}}
@@ -17,7 +18,7 @@
       <!-- Bloc de droite -->
       <span>
          Ajouté le 17/05/2021
-         <button (click)="setFav(contact)" class="btn btn-light">
+         <button (click)="setFav(contact, $event)" class="btn btn-light">
             <i [style.color]="getColor(contact)" class="fas fa-star"></i>
          </button>
       </span>

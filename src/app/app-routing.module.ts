@@ -5,7 +5,11 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'detail', component: DetailComponent }
+  { path: 'detail/:id', component: DetailComponent }
+  /* 
+  On définit la route detail/:id
+  id est un parmètre nommé dans l'url (index du contact)
+  */
 ];
 
 @NgModule({

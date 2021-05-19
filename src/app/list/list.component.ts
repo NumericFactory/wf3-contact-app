@@ -27,7 +27,8 @@ export class ListComponent implements OnInit {
     this.contacts = [...this.contactService.getContacts()];
   } // fin ngOnInit
 
-  deleteContact(contact) {
+  deleteContact(contact, e) {
+    e.stopProgagation();
     console.log(contact);
     // 1 récuperer l'index du contact dans le tableau
     if (confirm('Voulez-vous vraiment supprimer cet utilisateur ? ')) {
@@ -54,7 +55,8 @@ export class ListComponent implements OnInit {
     );
   }
 
-  setFav(contact) {
+  setFav(contact, e) {
+    e.stopProgagation();
     console.log(contact);
     this.contactService.setFavToTrueOrFalse(contact)
   }
