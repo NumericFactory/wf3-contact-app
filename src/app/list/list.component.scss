@@ -1,0 +1,8 @@
+li.list-group-item  {
+   transition-duration: .2s;
+
+   &:hover  {
+      background: #defdef;
+      cursor: pointer;
+   }
+}

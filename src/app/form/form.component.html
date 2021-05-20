@@ -1,0 +1,36 @@
+<h2>
+   <button class="btn" routerLink="/"><i class="fas fa-arrow-left"></i></button>
+   Ajouter un nouveu contact
+</h2>
+
+<form (ngSubmit)="addContact(contactForm)" [formGroup]="contactForm">
+   <label class="form-label">Prénom</label>
+   <input formControlName="first" type="text" class="form-control">
+   <div *ngIf="isSubmitted">
+      <p *ngIf="contactForm.controls.first.errors?.required" class="error">Prénom requis</p>
+      <p *ngIf="contactForm.controls.first.errors?.minlength" class="error">min. 2 caractères</p>
+   </div>
+
+   <label class="form-label">Nom</label>
+   <input formControlName="last" type="text" class="form-control">
+   <div *ngIf="isSubmitted">
+      <p *ngIf="contactForm.controls.last.errors?.required" class="error">Nom requis</p>
+      <p *ngIf="contactForm.controls.last.errors?.minlength" class="error">min. 2 caractères</p>
+   </div>
+
+   <label class="form-label">Email</label>
+   <input formControlName="email" type="text" class="form-control">
+   <div *ngIf="isSubmitted">
+      <p *ngIf="contactForm.controls.email.errors?.required" class="error">Email requis</p>
+      <p *ngIf="contactForm.controls.email.errors?.email" class="error">Renseignez un Email valide</p>
+   </div>
+
+
+   <label class="form-label">Telephone</label>
+   <input formControlName="mobile" type="text" class="form-control">
+
+   <button class="btn btn-dark">Envoyer</button>
+</form>
+
+<pre>{{ contactForm.value | json}}</pre>
+<pre>Formulaire VALIDE : {{contactForm.valid}}</pre>

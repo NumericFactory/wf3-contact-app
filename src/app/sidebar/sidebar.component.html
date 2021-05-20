@@ -1,7 +1,7 @@
 <!-- <pre>{{favoris | json}}</pre> -->
 <h2>Favoris</h2>
 <ul class="list-group">
-   <li *ngFor="let contact of favoris" class="list-group-item">
+   <li [routerLink]="['detail', i]" *ngFor="let contact of favoris; let i=index" class="list-group-item">
       {{contact.first}}
    </li>
 </ul>
